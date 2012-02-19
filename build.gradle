@@ -1,0 +1,35 @@
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'groovy'
+
+group = 'benpaddock.me'
+version = '1.0.0-SNAPSHOT'
+
+def hibernateGroup = 'org.hibernate'
+def hibernateVersion = '3.6.9.Final'
+def springGroup = 'org.springframework'
+def springVersion = '3.1.1.RELEASE'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: hibernateGroup, name: 'hibernate-core', version: hibernateVersion
+    compile group: hibernateGroup, name: 'hibernate-entitymanager', version: hibernateVersion
+    compile group: hibernateGroup, name: 'hibernate-c3p0', version: hibernateVersion
+    compile group: hibernateGroup, name: 'hibernate-ehcache', version: hibernateVersion
+    compile group: springGroup, name: 'spring-jdbc', version: springVersion
+    compile group: springGroup, name: 'spring-orm', version: springVersion
+    compile group: springGroup, name: 'spring-webmvc', version: springVersion
+    compile group: springGroup, name: 'spring-test', version: springVersion
+    compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
+
+    groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.5'
+
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+    testCompile group: 'com.h2database', name: 'h2', version: '1.3.164'
+}
+
+httpPort = 9090
