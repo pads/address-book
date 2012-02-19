@@ -18,7 +18,7 @@ public class PersonDao {
     }
 
     public Person getPerson(long id) {
-        hibernateTemplate.load(Person.class, id);
+        return hibernateTemplate.load(Person.class, id);
     }
 
     public void updatePerson(Person person) {
