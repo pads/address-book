@@ -22,11 +22,11 @@ public class PersonDao {
     }
 
     public void updatePerson(Person person) {
-
+        hibernateTemplate.update(person);
     }
 
     public void deletePerson(Person person) {
-
+        hibernateTemplate.delete(person);
     }
 
     public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
