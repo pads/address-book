@@ -7,8 +7,13 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:annotation-config/>
-    <context:component-scan base-package="me.benpaddock.addressbook.*"/>
+    <context:component-scan base-package="me.benpaddock.addressbook"/>
+
+    <!-- Controllers -->
+
+    <bean name="/person.html" class="me.benpaddock.addressbook.controller.PersonController"/>
+
+    <!-- Data -->
 
     <bean id="PersonDao" class="me.benpaddock.addressbook.dao.PersonDao">
 
