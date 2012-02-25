@@ -9,10 +9,6 @@
 
     <context:component-scan base-package="me.benpaddock.addressbook"/>
 
-    <!-- Controllers -->
-
-    <bean name="/person.html" class="me.benpaddock.addressbook.controller.PersonController"/>
-
     <!-- Data -->
 
     <bean id="PersonDao" class="me.benpaddock.addressbook.dao.PersonDao">

@@ -25,7 +25,6 @@ dependencies {
     compile group: springGroup, name: 'spring-webmvc', version: springVersion
     compile group: springGroup, name: 'spring-test', version: springVersion
     compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
-    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
 
     groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.5'
 
