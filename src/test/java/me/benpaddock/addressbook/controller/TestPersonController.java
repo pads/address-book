@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  * Date: 20/02/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:testApplicationContext.xml"})
 public class TestPersonController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class TestPersonController {
     @Test
     public void testPersonController() throws Exception {
 
-        assertEquals("person", controller.handleRequest());
+        assertEquals("person", controller.getPerson());
 
     }
 

@@ -9,9 +9,12 @@
 
     <context:component-scan base-package="me.benpaddock.addressbook"/>
 
+    <!-- Services -->
+    <bean id="personService" class="me.benpaddock.addressbook.service.StandardPersonService"/>
+
     <!-- Data -->
 
-    <bean id="PersonDao" class="me.benpaddock.addressbook.dao.PersonDao">
+    <bean id="personDao" class="me.benpaddock.addressbook.dao.PersonDao">
 
         <property name="hibernateTemplate" ref="hibernateTemplate"/>
 
@@ -42,7 +45,7 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>me.benpaddock.addressbook.domain.Person</value>
+                <value>me.benpaddock.addressbook.entity.PersonEntity</value>
             </list>
         </property>
 

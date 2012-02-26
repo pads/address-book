@@ -16,4 +16,64 @@
 
     </bean>
 
+    <!-- Services -->
+    <bean id="personService" class="me.benpaddock.addressbook.service.StandardPersonService"/>
+
+    <!-- Data -->
+
+    <bean id="personDao" class="me.benpaddock.addressbook.dao.PersonDao">
+
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+
+        <property name="sessionFactory" ref="sessionFactory"/>
+
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+
+        <property name="sessionFactory" ref="sessionFactory"/>
+
+    </bean>
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+
+        <property name="dataSource" ref="h2DataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>me.benpaddock.addressbook.entity.PersonEntity</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="h2DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+
+        <property name="driverClass">
+            <value>org.h2.Driver</value>
+        </property>
+        <property name="jdbcUrl">
+            <value>jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1;MVCC=TRUE</value>
+        </property>
+        <property name="user">
+            <value>sa</value>
+        </property>
+        <property name="password">
+            <value></value>
+        </property>
+
+    </bean>
+
+
 </beans>

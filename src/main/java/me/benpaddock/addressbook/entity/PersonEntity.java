@@ -1,5 +1,6 @@
-package me.benpaddock.addressbook.domain;
+package me.benpaddock.addressbook.entity;
 
+import me.benpaddock.addressbook.model.Person;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -14,16 +15,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class Person {
+public class PersonEntity implements Person {
 
     private long id;
     private String firstName;
     private String lastName;
 
-    public Person() {
+    public PersonEntity() {
     }
 
-    public Person(String firstName, String lastName) {
+    public PersonEntity(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

@@ -1,6 +1,7 @@
 package me.benpaddock.addressbook.dao;
 
-import me.benpaddock.addressbook.domain.Person;
+import me.benpaddock.addressbook.entity.PersonEntity;
+import me.benpaddock.addressbook.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,7 @@ public class PersonDao {
     }
 
     public Person getPerson(long id) {
-        return hibernateTemplate.load(Person.class, id);
+        return hibernateTemplate.load(PersonEntity.class, id);
     }
 
     public void updatePerson(Person person) {

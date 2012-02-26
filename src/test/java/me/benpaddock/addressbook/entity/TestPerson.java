@@ -1,4 +1,4 @@
-package me.benpaddock.addressbook.domain;
+package me.benpaddock.addressbook.entity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,15 +33,15 @@ public class TestPerson {
     public void testPerson() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(new Person("Ben", "Paddock"));
-        session.save(new Person("Karen", "Melrose"));
+        session.save(new PersonEntity("Ben", "Paddock"));
+        session.save(new PersonEntity("Karen", "Melrose"));
         session.getTransaction().commit();
         session.close();
 
         session = sessionFactory.openSession();
         session.beginTransaction();
         List result = session.createQuery("from Person").list();
-        for (Person person : (List<Person>) result) {
+        for (PersonEntity person : (List<PersonEntity>) result) {
             System.out.println("ID: " + person.getId() + ": " + person.getFirstName() + " " + person.getLastName());
         }
         session.getTransaction().commit();

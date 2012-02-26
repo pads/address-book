@@ -1,6 +1,7 @@
 package me.benpaddock.addressbook.dao;
 
-import me.benpaddock.addressbook.domain.Person;
+import me.benpaddock.addressbook.entity.PersonEntity;
+import me.benpaddock.addressbook.model.Person;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Date: 19/02/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:testApplicationContext.xml"})
 @Transactional
 public class TestPersonDao {
 
@@ -24,8 +25,8 @@ public class TestPersonDao {
 
     @Before
     public void setUp() {
-        personDao.savePerson(new Person("Ben", "Paddock"));
-        personDao.savePerson(new Person("Karen", "Melrose"));
+        personDao.savePerson(new PersonEntity("Ben", "Paddock"));
+        personDao.savePerson(new PersonEntity("Karen", "Melrose"));
     }
 
     @After
