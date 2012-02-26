@@ -1,7 +1,7 @@
 package me.benpaddock.addressbook.dao;
 
-import me.benpaddock.addressbook.entity.PersonEntity;
 import me.benpaddock.addressbook.model.Person;
+import me.benpaddock.addressbook.model.PersonEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * User: pads
@@ -21,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TestPersonDao {
 
     @Autowired
-    private PersonDao personDao;
+    private HibernatePersonDao personDao;
 
     @Before
     public void setUp() {
@@ -35,10 +37,15 @@ public class TestPersonDao {
     }
 
     @Test
-    public void testPersonDao() {
+    public void canGetSinglePerson() {
         Person ben = personDao.getPerson(1);
         System.out.println("ID: " + ben.getId() + ": " + ben.getFirstName() + " " + ben.getLastName());
-        Person karen = personDao.getPerson(2);
+    }
+
+    @Test
+    public void canFindPeople() {
+        List<Person> results = personDao.getPeople("Karen", "Melrose");
+        Person karen = results.get(0);
         System.out.println("ID: " + karen.getId() + ": " + karen.getFirstName() + " " + karen.getLastName());
     }
 }

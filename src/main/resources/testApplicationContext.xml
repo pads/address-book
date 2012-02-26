@@ -14,7 +14,7 @@
 
     <!-- Data -->
 
-    <bean id="personDao" class="me.benpaddock.addressbook.dao.PersonDao">
+    <bean id="personDao" class="me.benpaddock.addressbook.dao.HibernatePersonDao">
 
         <property name="hibernateTemplate" ref="hibernateTemplate"/>
 
@@ -45,7 +45,7 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>me.benpaddock.addressbook.entity.PersonEntity</value>
+                <value>me.benpaddock.addressbook.model.PersonEntity</value>
             </list>
         </property>
 

@@ -1,6 +1,5 @@
-package me.benpaddock.addressbook.entity;
+package me.benpaddock.addressbook.model;
 
-import me.benpaddock.addressbook.model.Person;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;

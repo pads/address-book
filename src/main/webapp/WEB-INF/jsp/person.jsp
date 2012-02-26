@@ -6,7 +6,9 @@
     </head>
   <body>
     <h1>Person</h1>
+    <p><%=person.getId() %></p>
     <p><%=person.getFirstName() %></p>
     <p><%=person.getLastName() %></p>
+    <a href="${pageContext.request.contextPath}">home</a>
   </body>
 </html>

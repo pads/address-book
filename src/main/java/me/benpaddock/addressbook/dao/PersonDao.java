@@ -1,39 +1,25 @@
 package me.benpaddock.addressbook.dao;
 
-import me.benpaddock.addressbook.entity.PersonEntity;
 import me.benpaddock.addressbook.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * User: pads
- * Date: 19/02/12
+ * Date: 26/02/12
  */
-@Transactional
-public class PersonDao {
+public interface PersonDao {
 
-    @Autowired
-    private HibernateTemplate hibernateTemplate;
+    public void savePerson(Person person);
 
-    public void savePerson(Person person) {
-        hibernateTemplate.persist(person);
-    }
+    public Person getPerson(long id);
 
-    public Person getPerson(long id) {
-        return hibernateTemplate.load(PersonEntity.class, id);
-    }
+    public List<Person> getPeople(String firstName, String lastName);
 
-    public void updatePerson(Person person) {
-        hibernateTemplate.update(person);
-    }
+    public List<Person> getAllPeople();
 
-    public void deletePerson(Person person) {
-        hibernateTemplate.delete(person);
-    }
+    public void updatePerson(Person person);
 
-    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-        this.hibernateTemplate = hibernateTemplate;
-    }
+    public void deletePerson(Person person);
 
 }
