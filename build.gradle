@@ -2,8 +2,9 @@ apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
-group = 'benpaddock.me'
+group = 'me.benpaddock'
 version = '1.0.0-SNAPSHOT'
 
 def hibernateGroup = 'org.hibernate'
@@ -13,6 +14,18 @@ def springVersion = '3.1.1.RELEASE'
 
 repositories {
     mavenCentral()
+}
+
+uploadArchives {
+    repositories {
+        deployer = mavenDeployer {
+            configureAuth = {
+                authentication(userName: repositoryUsername, password: repositoryPassword)
+            }
+            snapshotRepository(url: "http://benpaddock.me/repo/content/repositories/snapshots", configureAuth)
+            repository(url: "http://benpaddock.me/repo/content/repositories/releases", configureAuth)
+        }
+    }
 }
 
 dependencies {

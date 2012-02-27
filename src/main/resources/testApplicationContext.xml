@@ -10,6 +10,7 @@
     <context:component-scan base-package="me.benpaddock.addressbook"/>
 
     <!-- Services -->
+
     <bean id="personService" class="me.benpaddock.addressbook.service.StandardPersonService"/>
 
     <!-- Data -->

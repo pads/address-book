@@ -9,6 +9,8 @@
 
     <context:component-scan base-package="me.benpaddock.addressbook"/>
 
+    <!-- Views -->
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
         <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -17,6 +19,7 @@
     </bean>
 
     <!-- Services -->
+
     <bean id="personService" class="me.benpaddock.addressbook.service.StandardPersonService"/>
 
     <!-- Data -->

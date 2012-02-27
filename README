@@ -1,0 +1,4 @@
+To deploy the war to a repository you will need to create gradle.properties with the following contents:
+
+repositoryUsername=<username>
+repositoryPassword=<password>
