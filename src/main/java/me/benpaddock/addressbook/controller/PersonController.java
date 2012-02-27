@@ -40,7 +40,7 @@ public class PersonController {
                                   @RequestParam(value = "lastName") String lastName) {
         List<Person> people = personService.getPeople(firstName, lastName);
         Map<String, List<Person>> model = new HashMap<String, List<Person>>();
-        model.put("person", people);
+        model.put("people", people);
         return new ModelAndView("people", model);
     }
 
